@@ -1,1 +1,7 @@
-# compiler-notes
+# Apuntes de Compiladores
+
+Aquí se encuentran mis apuntes realizados durante la clase de compiladores con la maestra Zaira Zuviría en el periodo 2023-01 en la UAG.
+
+# Índice
+1. [Introducción](Introduccion.md)
+2. [Análisis Léxico](AnalisisLexico.md)

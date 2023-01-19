@@ -98,3 +98,6 @@ El alcance de una variable (conocido como **scope** en inglés) es la parte del 
 En lenguajes como C, por lo general podemos visualizar los alcances de las variables delimitados por llaves.
 
 ![ejemplo de alcance de variables en C](assets/scope.png)
+
+
+[Siguiente: Análisis Léxico >](./AnalisisLexico.md)

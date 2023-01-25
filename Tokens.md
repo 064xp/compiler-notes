@@ -1,3 +1,5 @@
+[< Regresar al Índice](README.md)
+
 # 1. Tokens
 Los tokens son las unidades léxicas de un lenguaje.
 

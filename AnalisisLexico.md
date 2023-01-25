@@ -95,16 +95,16 @@ Son la teoría detrás de las máquina de estados. Existen dos tipos,
 Podemos construi un AFN en base a una expresión regular siguiendo el algoritmo de McNaughton-Yamada-Thompson.
 ### 5.1.1. Or
 Para s|t
+
 ![expr or](./assets/afn-or.png)
 
 ### 5.1.2. Concatenación
 Para st
+
 ![expr concat](./assets/afn-concat.png)
 
 
 ### 5.1.3. Kleene
 Para s*
+
 ![expr concat](./assets/afn-kleene.png)
-
-
-[Siguiente: Tokens >](./Tokens.md)

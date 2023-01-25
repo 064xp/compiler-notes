@@ -115,4 +115,4 @@ En lenguajes como C, por lo general podemos visualizar los alcances de las varia
 ![ejemplo de alcance de variables en C](assets/scope.png)
 
 
-[Siguiente: Análisis Léxico >](./AnalisisLexico.md)
+[Siguiente: Tokens >](./Tokens.md)

@@ -1,4 +1,8 @@
-# Expresiones Regulares
+# 1. Expresiones Regulares
+
+- [1. Expresiones Regulares](#1-expresiones-regulares)
+  - [1.1. Ejemplos de Definiciones Regulares](#11-ejemplos-de-definiciones-regulares)
+
 
 Las expresiones regulares representan una manera de representar patrones de cadenas.
 
@@ -25,7 +29,7 @@ La expresión regular **rr** podría ser {aa, bb, ab, ba}
 
 Si un lenguaje se puede describir mediante una expresión regular, se le llama un **conjunto regular**.
 
-## Ejemplos de Definiciones Regulares
+## 1.1. Ejemplos de Definiciones Regulares
 1.
 $$
 a(a|b)*a

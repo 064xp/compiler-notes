@@ -1,18 +1,19 @@
-# Tokens
+# 1. Tokens
 Los tokens son las unidades léxicas de un lenguaje.
 
-# Índice
+# 2. Índice
 
-1. [Conceptos](#conceptos)
-2. [Operaciones en los Lenguajes](#operaciones-en-los-lenguajes)
-    1. [Unión](#unión)
-    2. [Concatenación](#concatenación)
-    3. [Cerradura de Kleene](#cerradura-de-kleene-l)
-    4. [Cerradura Positiva](#cerradura-positiva-l)
-3. [Expresiones Regulares](#expresiones-regulares)
+- [1. Tokens](#1-tokens)
+- [2. Índice](#2-índice)
+  - [2.1. Conceptos](#21-conceptos)
+  - [2.2. Operaciones en los lenguajes](#22-operaciones-en-los-lenguajes)
+    - [2.2.1. Unión](#221-unión)
+    - [2.2.2. Concatenación](#222-concatenación)
+    - [2.2.3. Cerradura de Kleene L\*](#223-cerradura-de-kleene-l)
+    - [2.2.4. Cerradura Positiva L](#224-cerradura-positiva-l)
 
 
-## Conceptos
+## 2.1. Conceptos
 - **Alfabeto:** Conjunto finito de símbolos
 - **Cadena:** Secuencia finita de símbolos de un alfabeto.
     - Dada una cadena S = *"camello"*
@@ -30,9 +31,9 @@ Los tokens son las unidades léxicas de un lenguaje.
 - **Concatenación:** Unión de dos o más cadenas.
     - Si **x** y **y** son dos cadenas, **xy** es la concatenación de ambas.
 
-## Operaciones en los lenguajes
+## 2.2. Operaciones en los lenguajes
 
-### Unión
+### 2.2.1. Unión
 Juntar dos o más conjuntos para hacer uno solo que contiene los elementos de ambos.
 
 Esto hace referencia a la propiedad **Asociativa**, es decir, no importa como se asocien los elementos.
@@ -41,14 +42,14 @@ $$
 A + B + C = (A + B) + C
 $$
 
-### Concatenación
+### 2.2.2. Concatenación
 Juntar dos o más conjuntos, en un orden específico, es decir
 
 $$
 AB \neq BA
 $$
 
-### Cerradura de Kleene L*
+### 2.2.3. Cerradura de Kleene L*
 
 Sea L un lenguaje, L* es el conjunto de cadenas que ese obtiene de concatenar 0 o más veces caracteres del alfabeto.
 
@@ -69,7 +70,7 @@ Se dice que esta cerradura es **idempotente**, es decir, no es posible decir
 (L*)*
 ```
 
-### Cerradura Positiva L
+### 2.2.4. Cerradura Positiva L
 
 Corresponde a $ L* - \epsilon$
 

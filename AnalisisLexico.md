@@ -9,11 +9,6 @@
 - [4. Reconocimiento de Tokens](#4-reconocimiento-de-tokens)
   - [4.1. Diagrama de Transición de estados](#41-diagrama-de-transición-de-estados)
   - [4.2. Reconocimiento de palabras reservadas e identificadores](#42-reconocimiento-de-palabras-reservadas-e-identificadores)
-- [5. Autómatas Finitos](#5-autómatas-finitos)
-  - [5.1. Construcción de AFN de una Expresión Regular](#51-construcción-de-afn-de-una-expresión-regular)
-    - [5.1.1. Or](#511-or)
-    - [5.1.2. Concatenación](#512-concatenación)
-    - [5.1.3. Kleene](#513-kleene)
 
 
 ## 1.1. Conceptos básicos
@@ -81,30 +76,5 @@ Para identificar palabras reservadas, existen dos maneras de hacerlo (generalmen
 2. Realizar diagrama de transición para encontrar el patrón que tienen las palabras, una vez que se encuentra la palabra, se busca en la tabla de símbolos (en donde las palabras reservadas fueron cargadas previamente).
 ![diagrama tokens](assets/transicion-tabla-simbolos.png)
 
-# 5. Autómatas Finitos
 
-Son la teoría detrás de las máquina de estados. Existen dos tipos, 
-
-- **Autómatas finitos deterministas (AFD):** Todos los estados tienen solamente una transición por cada condición de transición. Es decir, no se puede transicionar a dos o más estados por la misma condición.
-    - Solo tiene un estado final
-- **Autómatas finitos no deterministas (AFN):** Pueden haber mas de una transición de un estado a otro con la misma condición de transición. 
-    - Si tiene epsilon es AFN
-    - Si tiene dos o más estados finales es un AFN
-
-## 5.1. Construcción de AFN de una Expresión Regular
-Podemos construi un AFN en base a una expresión regular siguiendo el algoritmo de McNaughton-Yamada-Thompson.
-### 5.1.1. Or
-Para s|t
-
-![expr or](./assets/afn-or.png)
-
-### 5.1.2. Concatenación
-Para st
-
-![expr concat](./assets/afn-concat.png)
-
-
-### 5.1.3. Kleene
-Para s*
-
-![expr concat](./assets/afn-kleene.png)
+[Siguiente: Autómatas Finitos >](./AutomatasFinitos.md)

@@ -30,13 +30,11 @@ La expresión regular **rr** podría ser {aa, bb, ab, ba}
 Si un lenguaje se puede describir mediante una expresión regular, se le llama un **conjunto regular**.
 
 ## 1.1. Ejemplos de Definiciones Regulares
-1.
 $$
 a(a|b)*a
 $$
 Cualquier cadena que comienza por **a**, seguido por **a o b** 0 o más veces, que termina por **a**.
 
-2.
 $$
 ((\epsilon|a)b*)*
 $$

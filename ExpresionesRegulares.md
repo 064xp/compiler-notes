@@ -33,11 +33,13 @@ Si un lenguaje se puede describir mediante una expresión regular, se le llama u
 $$
 a(a|b)*a
 $$
+
 Cualquier cadena que comienza por **a**, seguido por **a o b** 0 o más veces, que termina por **a**.
 
 $$
 ((\epsilon|a)b*)*
 $$
+
 Cualquier cadena de 0 o más caracteres, constando de 0 o 1 **a**, concatenada con 0 o mas **b**.
 
 [Siguiente: Análisis Léxico >](./AnalisisLexico.md)

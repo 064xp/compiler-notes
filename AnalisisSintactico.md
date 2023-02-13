@@ -15,6 +15,9 @@
       - [3.4.1.2. No terminales](#3412-no-terminales)
       - [3.4.1.3. Terminales y no Terminales](#3413-terminales-y-no-terminales)
   - [3.5. Derivaciones](#35-derivaciones)
+  - [Eliminación de Recursividad de una Gramática](#eliminación-de-recursividad-de-una-gramática)
+    - [Recursividad por la izquierda](#recursividad-por-la-izquierda)
+    - [Ejemplo](#ejemplo)
 - [4. Expresiones Regulares y Gramáticas](#4-expresiones-regulares-y-gramáticas)
   - [4.1. Conversión de un AFN a una gramática](#41-conversión-de-un-afn-a-una-gramática)
 
@@ -187,6 +190,55 @@ $$
 
 $$
 \to -\bm{id} * (E + E) \to -\bm{id} * (\bm{id} + E) \to -\bm{id} * (\bm{id} + \bm{id})
+$$
+
+## Eliminación de Recursividad de una Gramática
+
+### Recursividad por la izquierda
+Una gramática es recursiva por la izquierda si
+
+$$
+A \stackrel{+}{\Rightarrow} A\alpha
+$$
+
+- $\alpha$ cualquier combinación de terminales y no terminales
+- $\beta$ cualquier combinación de terminales y no terminales que no contengan al no terminal del lado izquierdo.
+
+Si una gramátcia es recursiva por la izquierda
+
+$$
+A \to A\alpha_1 | A\alpha_2 | ... | A\alpha_m | \beta_1 | beta_2 | ... | \beta_n
+$$
+
+Se escribe que $A$ produce a los elementos que no son recursivos, concatenándoles $A'$.
+
+$A'$ por su cuenta, se escribe como la producción de los elementos que si son recursivos (quitándole la recursividad) y concatenándoles $A'$.
+
+$$
+A \to \beta_1 A' | \beta_2 A' | ... | \beta_n A'
+$$
+$$
+A' \to \alpha_1 A' | \alpha_2 A' | ... | \alpha_m A' | \epsilon
+$$
+
+### Ejemplo
+
+$$
+A \to A \; c \; | \; A \; a \; d \; | \; b \; d \; | \; \epsilon
+$$
+
+Eliminamos la recursividad inmediata **por la izquierda**.
+
+$$
+S \to A \; a \; | \; b
+$$
+
+$$
+A \to b \; d \; A' \; | A'
+$$
+
+$$
+A' \to c \; A' \; | \; a \; d \; A' \; | \; \epsilon
 $$
 
 ---

@@ -15,11 +15,16 @@
       - [3.4.1.2. No terminales](#3412-no-terminales)
       - [3.4.1.3. Terminales y no Terminales](#3413-terminales-y-no-terminales)
   - [3.5. Derivaciones](#35-derivaciones)
-  - [Eliminación de Recursividad de una Gramática](#eliminación-de-recursividad-de-una-gramática)
-    - [Recursividad por la izquierda](#recursividad-por-la-izquierda)
-    - [Ejemplo](#ejemplo)
+  - [3.6. Eliminación de Recursividad de una Gramática](#36-eliminación-de-recursividad-de-una-gramática)
+    - [3.6.1. Recursividad por la izquierda](#361-recursividad-por-la-izquierda)
+    - [3.6.2. Ejemplo](#362-ejemplo)
+  - [3.7. Fatorización de Producciones](#37-fatorización-de-producciones)
+    - [3.7.1. Ejemplo](#371-ejemplo)
 - [4. Expresiones Regulares y Gramáticas](#4-expresiones-regulares-y-gramáticas)
   - [4.1. Conversión de un AFN a una gramática](#41-conversión-de-un-afn-a-una-gramática)
+- [Análisis Sintáctivo Predictivo](#análisis-sintáctivo-predictivo)
+  - [Algoritmo](#algoritmo)
+  - [Ejemplo](#ejemplo)
 
 
 # 1. Introducción
@@ -192,9 +197,9 @@ $$
 \to -\bm{id} * (E + E) \to -\bm{id} * (\bm{id} + E) \to -\bm{id} * (\bm{id} + \bm{id})
 $$
 
-## Eliminación de Recursividad de una Gramática
+## 3.6. Eliminación de Recursividad de una Gramática
 
-### Recursividad por la izquierda
+### 3.6.1. Recursividad por la izquierda
 Una gramática es recursiva por la izquierda si
 
 $$
@@ -221,7 +226,7 @@ $$
 A' \to \alpha_1 A' | \alpha_2 A' | ... | \alpha_m A' | \epsilon
 $$
 
-### Ejemplo
+### 3.6.2. Ejemplo
 
 $$
 A \to A \; c \; | \; A \; a \; d \; | \; b \; d \; | \; \epsilon
@@ -239,6 +244,68 @@ $$
 
 $$
 A' \to c \; A' \; | \; a \; d \; A' \; | \; \epsilon
+$$
+
+## 3.7. Fatorización de Producciones
+
+La factorización nos sirve para generar gramáticas que solo tienen un camino de evaluación inclusoc cuando hay elementos comunes entre sus producciones.
+
+$$
+S \to i \; E \; t \; S \; | \; i \; E \; t \; S \; e \; S \; | \; a
+$$
+
+$$
+E \to b
+$$
+
+Supongamos esta gramática: if Expresión then Sentencia OR if Expresión then Sentencia else Sentencia OR algo mas
+
+Podemos factorizar $i \; E \; t \; S$, ya que es común entre dos producciones.
+
+
+Creamos un nuevo $S'$ que contiene la parte que no es común (o epsilon porque puede no estar) y lo concatenamos a la parte de la producción que es común.
+
+$$
+S \to i \; E \; t \; S \; S' \; | \; a
+$$
+
+$$
+S' \to eS \; | \; \epsilon
+$$
+
+$$
+E \to b
+$$
+
+Una gramática en la que se eliminó la recursividad y se factorizó (si fue necesario) se considera una gramática **LL(1)**, esto significa que solo se necesita leer un caracter adelante para que se pueda validar.
+
+### 3.7.1. Ejemplo
+
+Haremos una factorización por la izquierda de la siguiente gramática.
+$$
+instr \to if \; expr \; then \; instr \; | \; instrRelacionada
+$$
+
+$$
+instrRelacionada \to if \; expr \; then \; instrRelacionada \; else \; instr \; | \; otra
+$$
+
+Aunque al inicio parece que no es posible factorizar, si sustituimos $instrRelacionada$ por su producción en la produción de $instr$, obtenemos lo siguiente.
+
+$$
+I \to i \; e \; t \; I \; | \; i \; e \; t \; I \; el \; I \; | \; o
+$$
+
+Aqui ya podemos observar que podemos factorizar por la izquierda, ya que existen los términos comunes $i \; e \; t \; I$.
+
+Llegamos a la siguiente factorización:
+
+$$
+I \to i \; e \; t\; I \; I'
+$$
+
+$$
+I' \to el \; I \; | \; \epsilon
 $$
 
 ---
@@ -276,3 +343,34 @@ $$
 $$
 A_3 \to aA_2 \; | \; \epsilon
 $$
+
+# Análisis Sintáctivo Predictivo
+- Se elimina recursividad por la izquierda
+- Se factoriza (si es necesario)
+
+## Algoritmo
+Se establece una pila `P`, un input `w` y una tabla de análisis sintáctico `M` derivado de la gramática del lenguaje.
+
+Consideramos que `X` es el elemento en la cima de la pila `P` y `a` es el caracter del input que se está evaluando actualmente.
+
+1. Mientras `P` no esté vacía
+   1. Si `X` es `a`
+      1. **Pop** a la pila `P` y avanzar a la siguiente posición de `w`
+   2. Si no pero `X` es un terminal
+      1. Generar un error
+   3. Si no pero el cruce de `X` con `a` en `M` es una entrada de error
+      1. Generar un error
+   4. Si no, pero el cruce de `X` con `a` en `M` es una producción
+      1. **Pop** a la pila `P`
+      2. **Push** la producción caracter por caracter a la pila `P`*
+
+*Nota: Ya que se hace **push** caracter por caracter, si leemos la pila de arriba abajo nos encontramos con la producción al reves. Por ejemplo, si agregamos `abcde` a la pila, lo leeríamos como `edcba`.
+
+## Ejemplo
+
+Dada la siguiente tabla de análisis sintáctico
+![Tabla de Analisis sintactico](assets/tabla-analisis-sintactico.png)
+
+Realiza el análisis sintáctico de la cadena `id+id*id$` ($ representa un caracter de fin de cadena).
+
+![Procedimiento analisis sintactico predictivo](assets/ejemplo-analisis-sintactico-predictivo.png)

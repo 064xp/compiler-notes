@@ -1,5 +1,9 @@
 [< Regresar al Índice](README.md)
 
+<br />
+
+Tabla de Contenidos
+
 - [1. Introducción](#1-introducción)
   - [1.1. Funciones del Analizador Sintáctico](#11-funciones-del-analizador-sintáctico)
 - [2. Manejo de Errores](#2-manejo-de-errores)
@@ -22,9 +26,6 @@
     - [3.7.1. Ejemplo](#371-ejemplo)
 - [4. Expresiones Regulares y Gramáticas](#4-expresiones-regulares-y-gramáticas)
   - [4.1. Conversión de un AFN a una gramática](#41-conversión-de-un-afn-a-una-gramática)
-- [Análisis Sintáctivo Predictivo](#análisis-sintáctivo-predictivo)
-  - [Algoritmo](#algoritmo)
-  - [Ejemplo](#ejemplo)
 
 
 # 1. Introducción
@@ -344,33 +345,5 @@ $$
 A_3 \to aA_2 \; | \; \epsilon
 $$
 
-# Análisis Sintáctivo Predictivo
-- Se elimina recursividad por la izquierda
-- Se factoriza (si es necesario)
 
-## Algoritmo
-Se establece una pila `P`, un input `w` y una tabla de análisis sintáctico `M` derivado de la gramática del lenguaje.
-
-Consideramos que `X` es el elemento en la cima de la pila `P` y `a` es el caracter del input que se está evaluando actualmente.
-
-1. Mientras `P` no esté vacía
-   1. Si `X` es `a`
-      1. **Pop** a la pila `P` y avanzar a la siguiente posición de `w`
-   2. Si no pero `X` es un terminal
-      1. Generar un error
-   3. Si no pero el cruce de `X` con `a` en `M` es una entrada de error
-      1. Generar un error
-   4. Si no, pero el cruce de `X` con `a` en `M` es una producción
-      1. **Pop** a la pila `P`
-      2. **Push** la producción caracter por caracter a la pila `P`*
-
-*Nota: Ya que se hace **push** caracter por caracter, si leemos la pila de arriba abajo nos encontramos con la producción al reves. Por ejemplo, si agregamos `abcde` a la pila, lo leeríamos como `edcba`.
-
-## Ejemplo
-
-Dada la siguiente tabla de análisis sintáctico
-![Tabla de Analisis sintactico](assets/tabla-analisis-sintactico.png)
-
-Realiza el análisis sintáctico de la cadena `id+id*id$` ($ representa un caracter de fin de cadena).
-
-![Procedimiento analisis sintactico predictivo](assets/ejemplo-analisis-sintactico-predictivo.png)
+[Siguiente: Análisis sintáctico predictivo no recursivo >](./AnalisisSintacticoPredictivo.md)

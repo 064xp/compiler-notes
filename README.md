@@ -7,5 +7,6 @@ Aquí se encuentran mis apuntes realizados durante la clase de compiladores con 
 2. [Tokens](Tokens.md)
 3. [Expresiones Regulares](ExpresionesRegulares.md)
 4. [Análisis Léxico](AnalisisLexico.md)
-4. [Autómatas Finitos](AutomatasFinitos.md)
-4. [Análisis Sintáctico](AnalisisSintactico.md)
+5. [Autómatas Finitos](AutomatasFinitos.md)
+6. [Análisis Sintáctico](AnalisisSintactico.md)
+7. [Análisis sintáctico predictivo no recursivo](AnalisisSintacticoPredictivo.md)

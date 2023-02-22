@@ -111,7 +111,7 @@ Si $\epsilon$ está en $Primero(A)$ (siendo $A$ cualquier no terminal de la gram
 
 Para cada **no terminal** $b$ en $Siguiente(A)$, se agrega la producción de la gramática $A \to \alpha$ en la intersección de $A$ con $b$.
 
-> Nota, también podemos considerar a $\$$ como $b$.
+> Nota, también podemos considerar a $ como $b$.
 
 <br/>
 
@@ -123,7 +123,7 @@ $B \to bT'$
 
 y $Primero(B) = \lbrace b, \epsilon \rbrace$
 
-y $Siguiente(B) = \lbrace \$, a, c \rbrace$
+y $Siguiente(B) = \lbrace \$ , a, c \rbrace$
 
 ||a|b|c|d|$|
 |-|-|-|-|-|-|

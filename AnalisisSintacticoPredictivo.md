@@ -122,6 +122,7 @@ Supongamos que tenemos la gramática:
 $B \to bT'$
 
 y 
+
 $$
 Primero(B) = \lbrace b, \epsilon \rbrace
 $$

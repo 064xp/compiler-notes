@@ -119,7 +119,9 @@ Para cada **no terminal** $b$ en $Siguiente(A)$, se agrega la producción de la 
 
 Supongamos que tenemos la gramática:
 
-$B \to bT'$
+$$
+B \to bT'
+$$
 
 y 
 

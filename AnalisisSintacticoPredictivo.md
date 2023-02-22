@@ -46,11 +46,11 @@ $Primero(E)$ sería el terminal $a$.
 Existen algunas reglas o consideraciones con la funcion $Primero(\alpha)$.
 
 1. Si $\alpha$ es terminal, entonces $Primero(\alpha)$ regresa un conjunto con $\alpha$
-   1. $Primero(\alpha) = \{\alpha\}$
+   1. $Primero(\alpha) = \lbrace \alpha \rbrace$
 2. Si $\epsilon$ está en la producción de $\alpha$, entonces $\epsilon$ está en el conjunto que regresa $Primera(\alpha)$
    1. Si $\alpha \to \epsilon$
-   2. Entonces, $Primera(\alpha) \to \{\epsilon\}$
-3. Si $Primero(\alpha) = \{E\}$, donde $E$ es un no terminal, $Primero(\alpha) = Primero(E)$
+   2. Entonces, $Primera(\alpha) \to \lbrace \epsilon \rbrace$
+3. Si $Primero(\alpha) = \lbrace E \rbrace$, donde $E$ es un no terminal, $Primero(\alpha) = Primero(E)$
 4. Suponiendo una producción $X \to Y_1Y_2Y_3...$
    1. Si $Primero(Y_1)$ contiene $\epsilon$, se agrega $Primero(Y_2)$ y así sucesivamente.
 
@@ -63,7 +63,7 @@ $$
 
 Entonces
 $$
-Primero(E) = \{x, a\}
+Primero(E) = \lbrace x, a \rbrace
 $$
 
 ## 2.2. Función Siguiente
@@ -71,7 +71,7 @@ Para calcular la función $Siguiente(A)$, ahora buscamos $A$ del lado derecho de
 
 ### 2.2.1. Reglas
 
-1. Si $A$ es el signo inicial de la gramática (primer símbolo que aparece en la gramática), entonces $Siguiente(A) \to \{\$\}$.
+1. Si $A$ es el signo inicial de la gramática (primer símbolo que aparece en la gramática), entonces $Siguiente(A) \to \lbrace \$ \rbrace$.
 2. Si tenemos una producción de la forma $A \to \alpha B \beta$, entonces $Siguiente(B)$ contiene $Primero(\beta)$.
    1. Recordemos que $\alpha$ puede ser $\epsilon$, por lo que $A \to B\beta$, también cumple esta regla.
 3. Si tenemos una producción como $A \to \alpha B$, entonces $Siguiente(B)$ contiene todo lo de $Siguiente(A)$.
@@ -97,7 +97,7 @@ Para cada terminal $a$ en $Primero(A)$, agregamos la producción que en la que a
 
   Ejemplo, si 
 
-  1. $Primero(A) = \{a\}$  
+  1. $Primero(A) = \lbrace a \rbrace$  
   2. En la gramática encontramos $A \to aT$
 
   Agregamos en nuestra tabla
@@ -121,9 +121,9 @@ Supongamos que tenemos la gramática:
 
 $B \to bT'$
 
-y $Primero(B) = \{b, \epsilon\}$
+y $Primero(B) = \lbrace b, \epsilon \rbrace$
 
-y $Siguiente(B) = \{\$, a, c\}$
+y $Siguiente(B) = \lbrace \$, a, c \rbrace$
 
 ||a|b|c|d|$|
 |-|-|-|-|-|-|
@@ -153,6 +153,7 @@ Consideramos que `X` es el elemento en la cima de la pila `P` y `a` es el caract
 ## 3.1. Ejemplo
 
 Dada la siguiente tabla de análisis sintáctico
+
 ![Tabla de Analisis sintactico](assets/tabla-analisis-sintactico.png)
 
 Realiza el análisis sintáctico de la cadena `id+id*id$` ($ representa un caracter de fin de cadena).

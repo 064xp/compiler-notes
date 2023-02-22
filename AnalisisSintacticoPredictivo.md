@@ -123,7 +123,7 @@ $B \to bT'$
 
 y $Primero(B) = \lbrace b, \epsilon \rbrace$
 
-y $Siguiente(B) = \lbrace \$ , a, c \rbrace$
+y $Siguiente(B) = \lbrace\$, a, c \rbrace$
 
 ||a|b|c|d|$|
 |-|-|-|-|-|-|

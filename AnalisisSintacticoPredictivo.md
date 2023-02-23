@@ -93,7 +93,7 @@ Para rellenar la tabla, seguimos las siguientes reglas:
 
 
 #### 2.3.1.1. Regla 1
-Para cada terminal $a$ en $Primero(A)$, agregamos la producción que en la que aparece $a$ en la intersección de $A$ con $a$.
+Para cada terminal $a$ en $Primero(A)$, agregamos la producción en la que aparece $a$ a la tabla en la intersección de $A$ con $a$.
 
   Ejemplo, si 
 

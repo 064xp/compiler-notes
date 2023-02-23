@@ -72,7 +72,7 @@ Para calcular la función $Siguiente(A)$, ahora buscamos $A$ del lado derecho de
 ### 2.2.1. Reglas
 
 1. Si $A$ es el signo inicial de la gramática (primer símbolo que aparece en la gramática), entonces $Siguiente(A) \to \lbrace \$ \rbrace$.
-2. Si tenemos una producción de la forma $A \to \alpha B \beta$, entonces $Siguiente(B)$ contiene $Primero(\beta)$.
+2. Si tenemos una producción de la forma $A \to \alpha B \beta$, entonces $Siguiente(B)$ contiene $Primero(\beta)$ (excepto $\epsilon$).
    1. Recordemos que $\alpha$ puede ser $\epsilon$, por lo que $A \to B\beta$, también cumple esta regla.
 3. Si tenemos una producción como $A \to \alpha B$, entonces $Siguiente(B)$ contiene todo lo de $Siguiente(A)$.
    1. **Importante:** Una producción de la forma $A \to \alpha B \beta$ puede cumplir esta regla si $Primero(\beta)$ contiene $\epsilon$.

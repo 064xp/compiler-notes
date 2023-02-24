@@ -98,13 +98,13 @@ En estas **producciones**:
 - **T:** Término
 
 $$
-E\to E+T\;|\; T
+E\to E+T\hspace{.5em}|\hspace{.5em} T
 $$
 $$
-T\to T\ast F\;|\; F
+T\to T\ast F\hspace{.5em}|\hspace{.5em} F
 $$
 $$
-F\to (E)\;|\; id
+F\to (E)\hspace{.5em}|\hspace{.5em} id
 $$
 
 Se refiere a que lo que está del lado izquierdo puede ser sustituido por lo que está del lado derecho.
@@ -117,7 +117,7 @@ Una gramática es ambigua si permite generar 2 o más árboles de una misma expr
 ## 3.4. Gramática libre de contexto
 
 $$
-instr \to \bold{if} (\;expr\;) \; instr \; \bold{else} \; instr
+instr \to if (\hspace{.5em}expr\hspace{.5em}) \hspace{.5em} instr \hspace{.5em} else \hspace{.5em} instr
 $$
 
 If, else, () son terminales, tienen que aparecer literalmente así
@@ -179,23 +179,23 @@ Por ejemplo
 Suponiendo la gramática 
 
 $$
-E \to E+E \; | \; E \ast E \; | \; -E \; | \; (E) \; | \; \bold{id}
+E \to E+E \hspace{.5em} | \hspace{.5em} E \ast E \hspace{.5em} | \hspace{.5em} -E \hspace{.5em} | \hspace{.5em} (E) \hspace{.5em} | \hspace{.5em} id
 $$
 
 Encontrando las derivaciones para 
 
 $$
--\bold{id}\ast(\bold{id}+\bold{id})
+-id\ast(id+id)
 $$
 
 Derivaciones:
 
 $$
-E\to E*E \to -E * E \to -\bold{id} * E \to -\bold{id} * (E) 
+E\to E*E \to -E * E \to -id * E \to -id * (E) 
 $$
 
 $$
-\to -\bold{id} * (E + E) \to -\bold{id} * (\bold{id} + E) \to -\bold{id} * (\bold{id} + \bold{id})
+\to -id * (E + E) \to -id * (id + E) \to -id * (id + id)
 $$
 
 ## 3.6. Eliminación de Recursividad de una Gramática
@@ -230,21 +230,21 @@ $$
 ### 3.6.2. Ejemplo
 
 $$
-A \to A \; c \; | \; A \; a \; d \; | \; b \; d \; | \; \epsilon
+A \to A \hspace{.5em} c \hspace{.5em} | \hspace{.5em} A \hspace{.5em} a \hspace{.5em} d \hspace{.5em} | \hspace{.5em} b \hspace{.5em} d \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 Eliminamos la recursividad inmediata **por la izquierda**.
 
 $$
-S \to A \; a \; | \; b
+S \to A \hspace{.5em} a \hspace{.5em} | \hspace{.5em} b
 $$
 
 $$
-A \to b \; d \; A' \; | A'
+A \to b \hspace{.5em} d \hspace{.5em} A' \hspace{.5em} | A'
 $$
 
 $$
-A' \to c \; A' \; | \; a \; d \; A' \; | \; \epsilon
+A' \to c \hspace{.5em} A' \hspace{.5em} | \hspace{.5em} a \hspace{.5em} d \hspace{.5em} A' \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 ## 3.7. Fatorización de Producciones
@@ -252,7 +252,7 @@ $$
 La factorización nos sirve para generar gramáticas que solo tienen un camino de evaluación inclusoc cuando hay elementos comunes entre sus producciones.
 
 $$
-S \to i \; E \; t \; S \; | \; i \; E \; t \; S \; e \; S \; | \; a
+S \to i \hspace{.5em} E \hspace{.5em} t \hspace{.5em} S \hspace{.5em} | \hspace{.5em} i \hspace{.5em} E \hspace{.5em} t \hspace{.5em} S \hspace{.5em} e \hspace{.5em} S \hspace{.5em} | \hspace{.5em} a
 $$
 
 $$
@@ -261,17 +261,17 @@ $$
 
 Supongamos esta gramática: if Expresión then Sentencia OR if Expresión then Sentencia else Sentencia OR algo mas
 
-Podemos factorizar $i \; E \; t \; S$, ya que es común entre dos producciones.
+Podemos factorizar $i \hspace{.5em} E \hspace{.5em} t \hspace{.5em} S$, ya que es común entre dos producciones.
 
 
 Creamos un nuevo $S'$ que contiene la parte que no es común (o epsilon porque puede no estar) y lo concatenamos a la parte de la producción que es común.
 
 $$
-S \to i \; E \; t \; S \; S' \; | \; a
+S \to i \hspace{.5em} E \hspace{.5em} t \hspace{.5em} S \hspace{.5em} S' \hspace{.5em} | \hspace{.5em} a
 $$
 
 $$
-S' \to eS \; | \; \epsilon
+S' \to eS \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 $$
@@ -284,29 +284,29 @@ Una gramática en la que se eliminó la recursividad y se factorizó (si fue nec
 
 Haremos una factorización por la izquierda de la siguiente gramática.
 $$
-instr \to if \; expr \; then \; instr \; | \; instrRelacionada
+instr \to if \hspace{.5em} expr \hspace{.5em} then \hspace{.5em} instr \hspace{.5em} | \hspace{.5em} instrRelacionada
 $$
 
 $$
-instrRelacionada \to if \; expr \; then \; instrRelacionada \; else \; instr \; | \; otra
+instrRelacionada \to if \hspace{.5em} expr \hspace{.5em} then \hspace{.5em} instrRelacionada \hspace{.5em} else \hspace{.5em} instr \hspace{.5em} | \hspace{.5em} otra
 $$
 
 Aunque al inicio parece que no es posible factorizar, si sustituimos $instrRelacionada$ por su producción en la produción de $instr$, obtenemos lo siguiente.
 
 $$
-I \to i \; e \; t \; I \; | \; i \; e \; t \; I \; el \; I \; | \; o
+I \to i \hspace{.5em} e \hspace{.5em} t \hspace{.5em} I \hspace{.5em} | \hspace{.5em} i \hspace{.5em} e \hspace{.5em} t \hspace{.5em} I \hspace{.5em} el \hspace{.5em} I \hspace{.5em} | \hspace{.5em} o
 $$
 
-Aqui ya podemos observar que podemos factorizar por la izquierda, ya que existen los términos comunes $i \; e \; t \; I$.
+Aqui ya podemos observar que podemos factorizar por la izquierda, ya que existen los términos comunes $i \hspace{.5em} e \hspace{.5em} t \hspace{.5em} I$.
 
 Llegamos a la siguiente factorización:
 
 $$
-I \to i \; e \; t\; I \; I'
+I \to i \hspace{.5em} e \hspace{.5em} t\hspace{.5em} I \hspace{.5em} I'
 $$
 
 $$
-I' \to el \; I \; | \; \epsilon
+I' \to el \hspace{.5em} I \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 ---
@@ -334,15 +334,15 @@ stateDiagram-v2
 ```
 
 $$
-A_1 \to A_2 \; | \; bA_2
+A_1 \to A_2 \hspace{.5em} | \hspace{.5em} bA_2
 $$
 
 $$
-A_2 \to aA_2 \; | \; bA_3
+A_2 \to aA_2 \hspace{.5em} | \hspace{.5em} bA_3
 $$
 
 $$
-A_3 \to aA_2 \; | \; \epsilon
+A_3 \to aA_2 \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 

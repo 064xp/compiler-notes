@@ -117,7 +117,7 @@ Una gramática es ambigua si permite generar 2 o más árboles de una misma expr
 ## 3.4. Gramática libre de contexto
 
 $$
-instr \to \bm{if} (\;expr\;) \; instr \; \bm{else} \; instr
+instr \to \bold{if} (\;expr\;) \; instr \; \bold{else} \; instr
 $$
 
 If, else, () son terminales, tienen que aparecer literalmente así
@@ -179,23 +179,23 @@ Por ejemplo
 Suponiendo la gramática 
 
 $$
-E \to E+E \; | \; E \ast E \; | \; -E \; | \; (E) \; | \; \bm{id}
+E \to E+E \; | \; E \ast E \; | \; -E \; | \; (E) \; | \; \bold{id}
 $$
 
 Encontrando las derivaciones para 
 
 $$
--\bm{id}\ast(\bm{id}+\bm{id})
+-\bold{id}\ast(\bold{id}+\bold{id})
 $$
 
 Derivaciones:
 
 $$
-E\to E*E \to -E * E \to -\bm{id} * E \to -\bm{id} * (E) 
+E\to E*E \to -E * E \to -\bold{id} * E \to -\bold{id} * (E) 
 $$
 
 $$
-\to -\bm{id} * (E + E) \to -\bm{id} * (\bm{id} + E) \to -\bm{id} * (\bm{id} + \bm{id})
+\to -\bold{id} * (E + E) \to -\bold{id} * (\bold{id} + E) \to -\bold{id} * (\bold{id} + \bold{id})
 $$
 
 ## 3.6. Eliminación de Recursividad de una Gramática

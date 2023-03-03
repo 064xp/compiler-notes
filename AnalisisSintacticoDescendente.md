@@ -3,7 +3,7 @@
 <br />
 
 Tabla de Contenidos
-- [1. Análisis sintáctico predictivo no recursivo](#1-análisis-sintáctico-predictivo-no-recursivo)
+- [1. Análisis sintáctico Descendente predictivo no recursivo](#1-análisis-sintáctico-descendente-predictivo-no-recursivo)
 - [2. Tabla de Análisis Sintáctico](#2-tabla-de-análisis-sintáctico)
   - [2.1. Función Primero](#21-función-primero)
     - [2.1.1. Reglas](#211-reglas)
@@ -14,10 +14,13 @@ Tabla de Contenidos
       - [2.3.1.1. Regla 1](#2311-regla-1)
       - [2.3.1.2. Regla 2](#2312-regla-2)
       - [2.3.1.3. Regla 3](#2313-regla-3)
+    - [2.3.2. Reglas de Manejo de Errores](#232-reglas-de-manejo-de-errores)
+      - [2.3.2.1.](#2321)
 - [3. Algoritmo](#3-algoritmo)
   - [3.1. Ejemplo](#31-ejemplo)
+- [4. Manejo de Errores](#4-manejo-de-errores)
 
-# 1. Análisis sintáctico predictivo no recursivo
+# 1. Análisis sintáctico Descendente predictivo no recursivo
 
 - Se elimina recursividad por la izquierda
 - Se factoriza (si es necesario)
@@ -140,6 +143,32 @@ $$
 #### 2.3.1.3. Regla 3
 Las entradas vacías en la tabla son producciones de error.
 
+### 2.3.2. Reglas de Manejo de Errores
+
+#### 2.3.2.1. 
+Si P(A) tiene $\epsilon$ se pone $A \to \epsilon$ en los cruces de $A$ con todos los elementos e $S(A)$
+
+**Ejemplo**
+
+$P(A) = \{a, \epsilon\}$
+
+$S(A) = \{a, c\}$
+
+||a|b|c|
+|-|-|-|-|
+|A|$A \to \epsilon$| | $A \to \epsilon$ |
+
+Se pone $sinc$ en las intersecciones de $A$ con los elementos de $S(A)$
+
+**Ejemplo**
+
+$S(A) = \{b, c\}$
+
+||a|b|c|
+|-|-|-|-|
+|A||sinc| sinc |
+
+
 # 3. Algoritmo
 Se establece una pila `P`, un input `w` y una tabla de análisis sintáctico `M` derivado de la gramática del lenguaje.
 
@@ -166,4 +195,18 @@ Dada la siguiente tabla de análisis sintáctico
 
 Realiza el análisis sintáctico de la cadena `id+id*id$` ($ representa un caracter de fin de cadena).
 
+
 ![Procedimiento analisis sintactico predictivo](assets/ejemplo-analisis-sintactico-predictivo.png)
+
+# 4. Manejo de Errores
+
+Cuando en la intersección de un terminal con un no terminal en la [tabla de análisis sintáctico](#2-tabla-de-análisis-sintáctico) está **vacía** o se encuentra un caracter de sincronización **sinc**, significa que se ha encontrado un error.
+
+Se puede hacer le intento por recuperarse del error de las siguientes maneras:
+
+1. Si en la intersección se encuentra **sinc**,
+   1. Se hace POP a la pila
+2. Si la intersección está **vacía**
+   1. Se salta el caracter actual en la cadena
+
+[Siguiente: Análisis sintáctico Ascendente >](./AnalisisSintacticoAscendente.md)

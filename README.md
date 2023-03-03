@@ -9,4 +9,5 @@ Aquí se encuentran mis apuntes realizados durante la clase de compiladores con 
 4. [Análisis Léxico](AnalisisLexico.md)
 5. [Autómatas Finitos](AutomatasFinitos.md)
 6. [Análisis Sintáctico](AnalisisSintactico.md)
-7. [Análisis sintáctico predictivo no recursivo](AnalisisSintacticoPredictivo.md)
+7. [Análisis sintáctico Descendente predictivo no recursivo](AnalisisSintacticoDescendente.md)
+8. [Análisis sintáctico Ascendente](./AnalisisSintacticoAscendente.md)

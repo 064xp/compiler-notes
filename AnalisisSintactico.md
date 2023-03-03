@@ -346,4 +346,4 @@ A_3 \to aA_2 \hspace{.5em} | \hspace{.5em} \epsilon
 $$
 
 
-[Siguiente: Análisis sintáctico predictivo no recursivo >](./AnalisisSintacticoPredictivo.md)
+[Siguiente: Análisis sintáctico Descendente predictivo no recursivo >](./AnalisisSintacticoDescendente.md)

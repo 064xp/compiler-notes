@@ -93,10 +93,52 @@ Evalua la siguiente cadena
 
 $ id + id * id $
 
-**Evaluación**
+Suponiendo la gramática
+
+$$
+E \to E + E \to E * E \to (E) | id
+$$
+
+--- 
+
+Se evalúan las precedencias entre cada elemento
 
 $$
 \$ \lessdot id \gtrdot + \lessdot id \gtrdot * \lessdot id \gtrdot \$
+$$
+
+**Identificar Mangos**
+
+Se encuentra el primer $\gtrdot$ y se regresa hasta el primer $\lessdot$, lo que esté en medio es el mango.
+
+$$
+\lessdot \to id \leftarrow \gtrdot
+$$
+
+Reemplazamos los mangos por E
+
+$$
+\$ \lessdot E \gtrdot + \lessdot E \gtrdot * \lessdot E \gtrdot \$
+$$
+
+Quitamos los $E$ y evaluamos las precedencias de nuevo
+
+$$
+\$ \lessdot + \lessdot  *  \gtrdot \$
+$$
+
+Reemplazamos $\lessdot * \gtrdot$ por $E$ (producción $E \to E * E$)
+
+$$
+\$ \lessdot +  \gtrdot \$
+$$
+
+Reemplazamos $\lessdot + \gtrdot$ por $E$ (producción $E \to E + E$)
+
+(Aunque no pongamos E porque estamos evaluando la gramática de los operadores unicamente.)
+
+$$
+\$  \$
 $$
 
 # 4. Análisis LR(0)
